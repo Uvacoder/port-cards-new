@@ -20,7 +20,7 @@ function Navbar() {
     <>
       <div className="flex justify-end p-4 gap-2 w-full">
         <Button variant={"link"}>
-          <a href="https://www.linkedin.com/in/vince-flores/" target="_blank">
+          <a href="http://www.linkedin.com/in/vince-flores" target="_blank">
             <Linkedin className="text-white" />
           </a>
         </Button>
