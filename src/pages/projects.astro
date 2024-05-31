@@ -9,5 +9,5 @@ const data = await fetchRepos()
 ---
 
 <MySiteLayout>
-	<MyProjects client:load repoList={data} />	
+	<MyProjects client:only="react" repoList={data} />	
 </MySiteLayout>

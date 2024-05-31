@@ -5,15 +5,7 @@ import { getProfile } from "@/lib/controllers/getGithubData";
 import { type ProfileType } from "../../lib/repoTypes";
 
 export default function Navbar() {
-  const [profile, setProfile] = useState<ProfileType>({
-    avatarUrl: "",
-    name: "",
-  });
-  useEffect(() => {
-    getProfile().then((res) => {
-      setProfile(res);
-    });
-  }, []);
+
   return (
     <>
       <div className=" py-2 px-2 flex justify-between items-center my-2 mx-2">

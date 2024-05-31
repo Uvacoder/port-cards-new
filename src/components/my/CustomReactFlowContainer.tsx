@@ -1,27 +1,23 @@
 import "reactflow/dist/style.css";
+import  {
 
-
-
-import RepoCardNode from "../custom_nodes/RepoCardNode";
-import ReactFlow, {
-  MiniMap,
   Controls,
-  Background,
   useNodesState,
   useEdgesState,
   addEdge,
-  BackgroundVariant,
   type Node,
-  type Edge,
 } from "reactflow";
 import { useCallback, useEffect } from "react";
-import { Linkedin, Mail, Github } from "lucide-react";
 import { useState } from "react";
 import { CustomReactFlow } from "./Flow";
 import { Button } from "@/components/ui/button";
 import { Cross } from "lucide-react";
-import { fetchRepos, getRandomInt, getLayoutedElements, nodeTypes } from "../../lib/controllers/getGithubData";
-
+import {
+  fetchRepos,
+  getRandomInt,
+  getLayoutedElements,
+  nodeTypes,
+} from "../../lib/controllers/getGithubData";
 
 const initialNodes: Node[] = [
   { id: "10", position: { x: 0, y: 0 }, data: { label: "1" } },
@@ -35,15 +31,9 @@ const initialNodes: Node[] = [
 ];
 const initialEdges = [{ id: "e1-2", source: "1", target: "2" }];
 
-
-
-
-
-
 export default function CustomReactFlowContainer() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const [open, setOpen] = useState(false);
   const call = useCallback(async () => {
     try {
       const res = await fetchRepos();
@@ -58,9 +48,9 @@ export default function CustomReactFlowContainer() {
         };
         return node;
       });
-      const edj = foo.map((e, i) => {
+      const edj = foo.map((e) => {
         return {
-          id: `${e.id} ${i}`,
+          id: `${e.id}`,
           source: Number(e.id),
           target: getRandomInt(0, foo.length),
         };
@@ -68,7 +58,6 @@ export default function CustomReactFlowContainer() {
       const { nodes, edges } = getLayoutedElements(foo, edj, {
         direction: "RL",
       });
-      console.log(nodes) 
       setNodes([...nodes]);
       setEdges(edges || []); // Fix: Ensure edges is not null by providing a default empty array
     } catch (error) {

@@ -3,7 +3,7 @@ import type { GraphQlResponse } from "@octokit/graphql/types";
 import { type Repository } from "@/lib/repoTypes";
 import RepoCardNode from "@/components/custom_nodes/RepoCardNode";
 import Dagre from "@dagrejs/dagre";
-import { type Edge } from "reactflow";
+
 export const nodeTypes = {
   repoCardNode: RepoCardNode,
 };
@@ -21,13 +21,13 @@ export function getRandomInt(min: number, max: number) {
 }
 
 export const getLayoutedElements = (
-  nodes: any, 
-  edges: Edge[],
+  nodes: any,
+  edges: any,
   options: rankdirType
 ) => {
   g.setGraph({ rankdir: options.direction });
 
-  edges.forEach((edge) => g.setEdge(edge.source, edge.target));
+  edges.forEach((edge: any ) => g.setEdge(edge.source, edge.target));
   nodes.forEach((node: any) => g.setNode(node.id, node));
 
   Dagre.layout(g);

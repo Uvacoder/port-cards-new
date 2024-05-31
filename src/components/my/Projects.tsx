@@ -2,18 +2,15 @@ import { type Repository } from "@/lib/repoTypes";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
-import { Separator } from "../ui/separator";
-import { Ghost, Github, Tv } from "lucide-react";
+import { Github, Tv } from "lucide-react";
 export function Projects({ repoList }: { repoList: Repository[] }) {
-  function showDetails(e: React.SyntheticEvent, data: Repository) {
+  function showDetails(e: React.SyntheticEvent) {
     e.preventDefault();
     const modal: HTMLDialogElement | null = document.getElementById(
       "modal_1"
@@ -24,9 +21,10 @@ export function Projects({ repoList }: { repoList: Repository[] }) {
 
   return (
     <div className="h-full w-full ">
-      <h1 className=" px-4 text-center md:text-left  md:w-3/4 lg:w-1/2  mt-24 mb-10 text-3xl mx-auto">Projects</h1>
+      <h1 className=" px-4 text-center md:text-left  md:w-3/4 lg:w-1/2  mt-24 mb-10 text-3xl mx-auto">
+        Projects
+      </h1>
       <Table className=" w-[90%] mx-auto  md:w-3/4 lg:w-1/2  lg:max-w-1/2 ">
-        <br />
         <TableHeader className="text-left mx-4">
           <TableRow>
             <TableHead className=" font-light">Name</TableHead>
@@ -40,11 +38,14 @@ export function Projects({ repoList }: { repoList: Repository[] }) {
         </TableHeader>
         <TableBody>
           {repoList?.map((repo: Repository, i: number) => (
-            <TableRow key={repo.name} className="border-b border-black hover:bg-fuchsia-400 ">
+            <TableRow
+              key={i}
+              className="border-b border-black hover:bg-fuchsia-400 "
+            >
               <TableCell className="px-4">{repo.name}</TableCell>
               <TableCell className="flex items-center flex-wrap gap-3">
-                {repo.repositoryTopics.map((tag, i) => {
-                  return <p>{tag.topic}</p>;
+                {repo.repositoryTopics.map((tag, k) => {
+                  return <p key={k}>{tag.topic}</p>;
                 })}
               </TableCell>
               <TableCell>
@@ -62,7 +63,7 @@ export function Projects({ repoList }: { repoList: Repository[] }) {
                 </Button>
               </TableCell>
               <TableCell>
-                <Button variant={"link"} onClick={(e) => showDetails(e, repo)}>
+                <Button variant={"link"} onClick={(e) => showDetails(e)}>
                   Details
                 </Button>
 
@@ -92,18 +93,19 @@ export function Projects({ repoList }: { repoList: Repository[] }) {
                       </p>
                       <p>Languages</p>
                       <div className="flex gap-x-4">
-                        {repo.languages.map((lang) => {
+                        {repo.languages.map((lang, j) => {
                           return (
-                            <div className="flex gap-x-1 justify-start items-center text-xs">
+                            <div
+                              key={j}
+                              className="flex gap-x-1 justify-start items-center text-xs"
+                            >
                               <div
                                 className="rounded-full w-3 h-3"
                                 style={{
                                   background: lang.color,
                                 }}
                               />
-                              <p key={lang.color} className="text-sm">
-                                {lang.name}
-                              </p>
+                              <p className="text-sm">{lang.name}</p>
                             </div>
                           );
                         })}
