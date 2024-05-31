@@ -1,0 +1,13 @@
+---
+
+import MySiteLayout from "@/layouts/MySiteLayout.astro"
+import {fetchRepos} from '@/lib/controllers/getGithubData'
+import {Projects as MyProjects} from '../components/my/Projects'
+const data = await fetchRepos() 
+// console.log(data)
+
+---
+
+<MySiteLayout>
+	<MyProjects client:load repoList={data} />	
+</MySiteLayout>

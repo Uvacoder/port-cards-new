@@ -1,0 +1,23 @@
+
+---
+import '@/styles/globals.css'
+import Navbar from "@/components/my/Navbar";
+import Header from "@/components/my/Header";
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <BaseHead title={title}/> -->
+  </head>
+  <body class=" bg-yellow-300 m-0 h-screen text-black">
+    <h1>{title}</h1>
+    <Navbar client:load />
+    <article class="m-0">
+        <slot /> 
+    </article> 
+    <Header client:load />
+  </body>
+</html>

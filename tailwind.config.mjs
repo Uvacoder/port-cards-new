@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
+import daisyui from "daisyui";
 export default {
   darkMode: ["class"],
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   prefix: "",
+  daisyui: {
+    themes: ["light", "dark", "cupcake", "cyberpunk"],
+  },
   theme: {
     container: {
       center: true,
@@ -68,5 +72,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-}
+  plugins: [require("tailwindcss-animate"), require("daisyui")],
+};
