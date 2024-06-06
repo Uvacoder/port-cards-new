@@ -1,10 +1,11 @@
 ---
 import '@/styles/globals.css'
 import MySiteLayout from '@/layouts/MySiteLayout.astro'
+import Home from './Home'
 ---
 
 <MySiteLayout>
-	<div class="grid grid-cols-3">
-		<h1>Hello</h1>
+	<div class="w-full">
+		<Home client:load/> 
 	</div>
 </MySiteLayout>

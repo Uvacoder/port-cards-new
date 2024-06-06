@@ -1,8 +1,12 @@
+import { FlipWords } from "../acernity/flip-words";
 function Header() {
+  const words = ["Engineer", "Developer"]
   return (
-    <div className="absolute bottom-0 flex flex-col mx-10 my-10 text-left items-start justify-start">
-      <h1 className="font-mono  text-3xl">Vince Flores</h1>
-      <p className="italic">Software Engineer</p>
+    <div className=" absolute z-40 bottom-0 hidden sm:flex flex-col mx-5 mb-5  text-left items-start justify-start">
+      <h1 className="font-mono  text-sm md:text-3xl">Vince Flores</h1>
+      <p className="text-xs">
+        Software <FlipWords words={words} />
+      </p>
     </div>
   );
 }

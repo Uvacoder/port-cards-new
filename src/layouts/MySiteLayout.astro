@@ -4,20 +4,18 @@ import '@/styles/globals.css'
 import Navbar from "@/components/my/Navbar";
 import Header from "@/components/my/Header";
 const { title } = Astro.props;
+const theme = "retro"
 ---
 
-<html lang="en">
+<html data-theme={theme} lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <BaseHead title={title}/> -->
   </head>
-  <body class=" bg-yellow-300 m-0 h-screen text-black">
+  <body data-theme={theme} class="m-0 h-screen ">
     <h1>{title}</h1>
     <Navbar client:load />
-    <article class="m-0">
-        <slot /> 
-    </article> 
+     <slot class="m-0" /> 
     <Header client:load />
   </body>
 </html>

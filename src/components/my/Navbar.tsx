@@ -5,11 +5,9 @@ import { getProfile } from "@/lib/controllers/getGithubData";
 import { type ProfileType } from "../../lib/repoTypes";
 
 export default function Navbar() {
-
   return (
     <>
-      <div className=" py-2 px-2 flex justify-between items-center my-2 mx-2">
-      
+      <div className="py-2 px-2 flex justify-between items-center mb-2 mx-2">
         <div className=" gap-x-4 flex">
           <a href="/">Home</a>
           <a href="projects" className="">
