@@ -1,4 +1,3 @@
-import { Skeleton } from "@/components/ui/skeleton";
 import { TextGenerateEffect } from "@/components/acernity/text-generate-effect";
 function Home() {
   return (
