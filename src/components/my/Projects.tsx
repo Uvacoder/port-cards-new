@@ -22,7 +22,7 @@ export function Projects({ repoList }: { repoList: Repository[] }) {
   return (
     <div className=" w-full ">
       <h1 className="font-bold text-center sm:text-left  sm:w-3/4   mt-12 mb-5 text-3xl mx-auto">
-        <Wrench className="text-3xl" /> Projects
+        Projects
       </h1>
       <Table className=" w-[90%] mx-auto  md:w-3/4 ">
         <TableBody>
@@ -39,19 +39,19 @@ export function Projects({ repoList }: { repoList: Repository[] }) {
               <TableCell>
                 <Button variant={"link"} asChild>
                   <a href={repo.homepageUrl} target="_blank">
-                    <Tv className="w-5" />
+                    <Tv className="w-5 text-success " />
                   </a>
                 </Button>
               </TableCell>
               <TableCell>
                 <Button variant={"link"} asChild>
                   <a href={repo.url}>
-                    <Github className="w-5" />
+                    <Github className="w-5  text-black" />
                   </a>
                 </Button>
               </TableCell>
               <TableCell>
-                <Button variant={"link"} onClick={(e) => showDetails(e)}>
+                <Button className="text-base-100" variant={"link"} onClick={(e) => showDetails(e)}>
                   Details
                 </Button>
                 <dialog id="modal_1" className="w-3/4 md:w-1/2 rounded-md">

@@ -1,17 +1,58 @@
 import { TextGenerateEffect } from "@/components/acernity/text-generate-effect";
+import { TypewriterEffect } from "@/components/acernity/typewriter-effect";
+import { BentoGrid, BentoGridItem } from "@/components/acernity/bento-grid";
+
 function Home() {
   return (
-    <div className="h-[500px] lg:max-h-[500px]  grid grid-cols-3  grid-rows-3 lg:grid-cols-4 lg:grid-rows-4 mx-10 gap-3  ">
-      <div className="rounded-box  grid grid-cols-2 grid-rows-2 gap-2  row-span-4"></div>
-      <div className=" rounded-box bg-primary row-span-1 lg:row-span-2"></div>
-      <div className=" rounded-box bg-warning row-span-1 lg:row-span-2"></div>
-      <div className=" border border-black/20 bg-accent rounded-box row-span-full col-span-2 ">
-        <h1 className="m-4">
-          <TextGenerateEffect words="Hello world its a beautiful day" />
-        </h1>
-      </div>
-    </div>
+    <BentoGrid className="w-[90%] md:mt-20 md:w-5/6 max-w-[900px]">
+      <BentoGridItem
+        className="col-span-1 md:col-span-2"
+        header={
+          <TypewriterEffect
+            words={typewriterWords}
+            className="w-full md:text-lg text-sm text-left"
+            cursorClassName="text-wrror"
+          />
+        }
+      />
+      <BentoGridItem
+        title="title"
+        description="description"
+        header={"header"}
+        className="text-right bg-success/60"
+      />
+      <BentoGridItem
+        title="title"
+        description="List of projects"
+        header={"header"}
+        className="text-right bg-secondary/50"
+      />
+      <BentoGridItem className="col-span-2" />
+    </BentoGrid>
   );
 }
 
 export default Home;
+
+const typewriterWords = [
+  {
+    text: "Hello",
+  },
+  {
+    text: "World",
+  },
+  {
+    text: "It's",
+  },
+  {
+    text: "a",
+  },
+  {
+    text: "Good",
+    className: "text-error w-full",
+  },
+  {
+    text: "Day",
+    className: "text-error w-full",
+  },
+];

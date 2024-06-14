@@ -66,7 +66,7 @@ export async function fetchRepos() {
     `
         query {
           user(login:  "vinceflores"){
-            repositories(first: 10, isFork: false, visibility: PUBLIC, orderBy: {
+            repositories(first: 15, isFork: false, visibility: PUBLIC, orderBy: {
                 direction:  DESC, 
                 field: UPDATED_AT
             }){
