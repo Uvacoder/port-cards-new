@@ -21,7 +21,7 @@ export function Projects({ repoList }: { repoList: Repository[] }) {
 
   return (
     <div className=" w-full ">
-      <h1 className="font-bold text-center sm:text-left  sm:w-3/4   mt-12 mb-5 text-3xl mx-auto">
+      <h1 className="font-bold text-center  sm:text-left w-[90%] md:w-3/4  mt-12 mb-5 text-3xl mx-auto">
         Projects
       </h1>
       <Table className=" w-[90%] mx-auto  md:w-3/4 ">

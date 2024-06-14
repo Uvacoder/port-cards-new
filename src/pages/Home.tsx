@@ -4,7 +4,7 @@ import { BentoGrid, BentoGridItem } from "@/components/acernity/bento-grid";
 
 function Home() {
   return (
-    <BentoGrid className="w-[90%] md:mt-20 md:w-5/6 max-w-[900px]">
+    <BentoGrid className="w-[90%] min-h-screen md:mt-20 md:w-5/6 max-w-[900px]">
       <BentoGridItem
         className="col-span-1 md:col-span-2"
         header={
@@ -27,7 +27,7 @@ function Home() {
         header={"header"}
         className="text-right bg-secondary/50"
       />
-      <BentoGridItem className="col-span-2" />
+      <BentoGridItem className="md:col-span-2" />
     </BentoGrid>
   );
 }
